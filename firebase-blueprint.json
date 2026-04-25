@@ -1,0 +1,24 @@
+{
+  "entities": {
+    "Evaluation": {
+      "title": "Evaluation",
+      "description": "A hackathon project evaluation result",
+      "type": "object",
+      "properties": {
+        "projectName": { "type": "string" },
+        "totalScore": { "type": "number" },
+        "type": { "type": "string", "enum": ["RAPID", "AUDIT"] },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "attempts": { "type": "number" },
+        "verdict": { "type": "string" }
+      },
+      "required": ["projectName", "totalScore", "type", "timestamp", "attempts", "verdict"]
+    }
+  },
+  "firestore": {
+    "/evaluations/{evaluationId}": {
+      "schema": "Evaluation",
+      "description": "Collection of all evaluations"
+    }
+  }
+}
